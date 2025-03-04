@@ -18,7 +18,7 @@ const CourseSidebar: React.FC<CourseSidebarProps> = ({
     return (
       <div className="px-4 py-2">
         <div className="flex items-center space-x-2">
-          <div className="h-4 w-4 animate-spin rounded-full border-b-2 border-t-2 border-indigo-600"></div>
+          <div className="size-4 animate-spin rounded-full border-y-2 border-indigo-600"></div>
           <span className="text-sm text-gray-500">Loading courses...</span>
         </div>
       </div>
@@ -36,10 +36,10 @@ const CourseSidebar: React.FC<CourseSidebarProps> = ({
               selectedCourseId === course.id
                 ? 'bg-indigo-100 text-indigo-900'
                 : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
-            } group flex w-full items-center rounded-md px-2 py-2 text-left text-sm font-medium`}
+            } group flex w-full items-center rounded-md p-2 text-left text-sm font-medium`}
           >
             <span className="truncate">{course.name}</span>
-            <span className="ml-auto inline-block rounded-full bg-gray-100 py-0.5 px-2 text-xs">
+            <span className="ml-auto inline-block rounded-full bg-gray-100 px-2 py-0.5 text-xs">
               {course.students.length}
             </span>
           </button>
