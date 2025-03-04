@@ -1,5 +1,6 @@
 import Avatar from 'components/Avatar'
 import logo from 'assets/logo.svg'
+import { useTeachableCourses } from 'services/teachableApi'
 
 const randoms = [
   [1, 2],
@@ -8,6 +9,14 @@ const randoms = [
 ]
 
 function App() {
+  // Use the custom hook
+  const { courses, loading, error } = useTeachableCourses()
+
+  // Console.log the courses data for testing
+  console.log('Teachable Courses:', courses)
+  console.log('Loading state:', loading)
+  console.log('Error state:', error)
+
   return (
     <div className="relative overflow-hidden bg-white">
       <div className="h-screen sm:pb-40 sm:pt-24 lg:pb-48 lg:pt-40">

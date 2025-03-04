@@ -11,5 +11,14 @@ export default defineConfig({
     environment: 'happy-dom',
     setupFiles: '.vitest/setup',
     include: ['**/test.{ts,tsx}']
+  },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://developers.teachable.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      }
+    }
   }
 })
