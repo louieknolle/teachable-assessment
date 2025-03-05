@@ -1,6 +1,10 @@
 import React, { ReactNode, useState, useEffect } from 'react'
 import { XMarkIcon, Bars3Icon } from '@heroicons/react/24/outline'
 
+interface SidebarInjectedProps {
+  closeMobileMenu?: () => void
+}
+
 interface LayoutProps {
   children: ReactNode
   sidebar: ReactNode
@@ -22,6 +26,20 @@ const Layout: React.FC<LayoutProps> = ({ children, sidebar }) => {
       document.removeEventListener('keydown', handleKeyDown)
     }
   }, [sidebarOpen])
+
+  // Clone the sidebar element and pass the closeMobileMenu prop
+  const sidebarWithCloseFn = React.Children.map(sidebar, (child) => {
+    if (React.isValidElement(child)) {
+      // Use type assertion to tell TypeScript this is valid
+      return React.cloneElement(
+        child as React.ReactElement<SidebarInjectedProps>,
+        {
+          closeMobileMenu: () => setSidebarOpen(false)
+        }
+      )
+    }
+    return child
+  })
 
   return (
     <div className="flex h-screen overflow-hidden bg-gray-100">
@@ -56,7 +74,9 @@ const Layout: React.FC<LayoutProps> = ({ children, sidebar }) => {
               Course Dashboard
             </h1>
           </div>
-          <div className="mt-5 h-0 flex-1 overflow-y-auto">{sidebar}</div>
+          <div className="mt-5 h-0 flex-1 overflow-y-auto">
+            {sidebarWithCloseFn}
+          </div>
         </div>
       </div>
 

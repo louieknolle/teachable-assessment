@@ -33,6 +33,7 @@ export interface CourseWithStudents {
   id: number
   name: string
   heading: string | null
+  published: boolean
   students: {
     id: number
     name: string
@@ -77,6 +78,7 @@ export const getAllCourses = async (): Promise<CourseWithStudents[]> => {
               name: course.name,
               heading: course.heading,
               description: course.description,
+              published: course.is_published,
               students: []
             }
           }
@@ -119,6 +121,7 @@ export const getAllCourses = async (): Promise<CourseWithStudents[]> => {
             id: course.id,
             name: course.name,
             heading: course.heading,
+            published: course.is_published,
             students: studentDetails
           }
         } catch (error) {
@@ -127,6 +130,7 @@ export const getAllCourses = async (): Promise<CourseWithStudents[]> => {
             id: course.id,
             name: course.name,
             heading: course.heading,
+            published: course.is_published,
             students: []
           }
         }
