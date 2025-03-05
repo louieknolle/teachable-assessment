@@ -1,26 +1,29 @@
-import { classNames } from 'utils'
+import React from 'react'
+import { classNames } from '../../utils'
 
-type Size = 'small' | 'medium' | 'large'
-
-type AvatarProps = {
-  size?: Size
+export interface AvatarProps {
+  size?: 'small' | 'medium' | 'large'
   src?: string
   alt?: string
 }
 
-const sizes: Record<Size, string> = {
+const sizes = {
   small: 'w-10 h-10',
   medium: 'w-12 h-12',
   large: 'w-14 h-14'
 }
 
-const EmptyAvatar = ({ size = 'medium' }: Pick<AvatarProps, 'size'>) => (
+const EmptyAvatar = ({
+  size = 'medium'
+}: {
+  size?: 'small' | 'medium' | 'large'
+}) => (
   <span
-    data-testid="empty-avatar"
     className={classNames(
       'inline-block overflow-hidden bg-gray-100 rounded-full',
       sizes[size]
     )}
+    data-testid="empty-avatar"
   >
     <svg
       className="size-full text-gray-300"

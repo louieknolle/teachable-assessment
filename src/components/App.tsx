@@ -8,12 +8,10 @@ function App() {
   const { courses, loading, error } = useTeachableCourses()
   const [selectedCourseId, setSelectedCourseId] = useState<number | null>(null)
 
-  // Find the currently selected course
   const selectedCourse = selectedCourseId
     ? courses.find((course) => course.id === selectedCourseId)
     : null
 
-  // Select the first course by default when courses are loaded
   if (!loading && courses.length > 0 && !selectedCourseId) {
     setSelectedCourseId(courses[0].id)
   }
