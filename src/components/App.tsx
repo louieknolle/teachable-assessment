@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { useTeachableCourses } from '../services/teachableApi'
 import Layout from './Layout'
-import CourseSidebar from './CourseSidebar'
-import CourseDetails from './CourseDetails'
+import CourseSidebar from './CourseSidebar/CourseSidebar'
+import CourseDetails from './CourseDetails/CourseDetails'
 
 function App() {
   const { courses, loading, error } = useTeachableCourses()

@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react'
-import CourseSidebar from '../CourseSidebar'
+import CourseSidebar from './CourseSidebar'
 
 const mockCourses = [
   {

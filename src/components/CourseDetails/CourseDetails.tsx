@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { CourseWithStudents } from '../services/teachableApi'
+import { CourseWithStudents } from '../../services/teachableApi'
 import {
   UserGroupIcon,
   AcademicCapIcon,
@@ -7,11 +7,11 @@ import {
   ChartBarIcon,
   MagnifyingGlassIcon
 } from '@heroicons/react/24/outline'
-import ResponsiveTable from './ResponsiveTable'
-import StatsCard from './StatsCard'
-import { getStudentColumns } from './ResponsiveTable/studentColumns'
-import { Student } from './ResponsiveTable/types'
-import { filterStudentsBySearch } from '../utils/studentFilters'
+import ResponsiveTable from '../ResponsiveTable'
+import StatsCard from '../StatsCard'
+import { getStudentColumns } from '../ResponsiveTable/studentColumns'
+import { Student } from '../ResponsiveTable/types'
+import { filterStudentsBySearch } from '../../utils/studentFilters'
 
 interface CourseDetailsProps {
   course: CourseWithStudents | null
