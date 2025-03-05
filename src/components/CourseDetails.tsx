@@ -11,6 +11,7 @@ import ResponsiveTable from './ResponsiveTable'
 import StatsCard from './StatsCard'
 import { getStudentColumns } from './ResponsiveTable/studentColumns'
 import { Student } from './ResponsiveTable/types'
+import { filterStudentsBySearch } from '../utils/studentFilters'
 
 interface CourseDetailsProps {
   course: CourseWithStudents | null
@@ -42,11 +43,7 @@ const CourseDetails: React.FC<CourseDetailsProps> = ({ course }) => {
     (student) => student.percentComplete === 100
   ).length
 
-  const filteredStudents = searchQuery
-    ? course.students.filter((student) =>
-        student.name.toLowerCase().includes(searchQuery.toLowerCase())
-      )
-    : course.students
+  const filteredStudents = filterStudentsBySearch(course.students, searchQuery)
 
   const studentColumns = getStudentColumns()
 
