@@ -3,6 +3,7 @@ import axios from 'axios'
 
 // Instead of the direct API URL, use the proxy to avoid CORS issues for local development
 const API_BASE_URL = '/api'
+// so application can be tested locally without creating an .env.local file
 const API_KEY = '7JbSA3ep6XOMV3t8t7QXuXq9HS79Dwnr'
 
 export interface Enrollment {
@@ -48,7 +49,7 @@ const apiClient = axios.create({
   headers: {
     'Content-Type': 'application/json',
     Accept: 'application/json',
-    Apikey: API_KEY
+    Apikey: API_KEY ?? import.meta.env.VITE_API_KEY
   }
 })
 
