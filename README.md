@@ -31,8 +31,8 @@ This application provides a comprehensive view of your Teachable courses, includ
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/teachable-dashboard.git
-   cd teachable-dashboard
+   git clone https://github.com/louieknolle/teachable-assessment.git
+   cd teachable-assessment
    ```
 
 2. Install dependencies:
